@@ -1,7 +1,8 @@
+# /bin/bash
 # ubuntu 20.04
 
-sudo passwd
-su
+read | sudo passwd
+read | su
 
 
 # install kubeadm
