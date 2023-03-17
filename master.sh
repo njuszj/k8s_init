@@ -26,11 +26,12 @@ sysctl --system
 hostnamectl set-hostname master
 
 echo "Input host, use EOF to end"
+
 while read line; do
-  if [[ $line == "EOF" ]]; then
-    break
-  fi
-  echo "$line" >> /etc/host
+    if [[ $line == "EOF" ]]; then
+        break
+    fi
+    echo "$line" >> /etc/host
 done
 
 apt install docker.io
