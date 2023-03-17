@@ -1,9 +1,12 @@
 # /bin/bash
 # ubuntu 20.04
 
-# sudo passwd
-# su
 
+if [[ "$1" == "init" ]]
+then
+    sudo passwd
+    su
+fi
 
 # install kubeadm
 mkdir /etc/apt/keyrings
