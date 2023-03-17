@@ -1,0 +1,2 @@
+# k8s_init
+基于kubeadm初始化k8s的master和worker节点
