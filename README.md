@@ -1,5 +1,9 @@
 # k8s_init
-基于kubeadm初始化k8s的master和worker节点
+bash script to init kubernetes based on kubeadm
 
-# 运行方法
-curl https://raw.githubusercontent.com/njuszj | bash
+# how to use
+## 1. for master node
+curl https://raw.githubusercontent.com/njuszj/k8s_init/main/master.sh | bash
+
+## 2. for worker node
+curl https://raw.githubusercontent.com/njuszj/k8s_init/main/worker.sh | bash
