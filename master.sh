@@ -35,7 +35,7 @@ while read line; do
     if [[ $line == "EOF" ]]; then
         break
     fi
-    echo "$line" >> /etc/host
+    echo "$line" >> /etc/hosts
 done
 
 apt install docker.io
