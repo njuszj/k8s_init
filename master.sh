@@ -1,13 +1,6 @@
 # /bin/bash
 # ubuntu 20.04
 
-
-if [[ "$1" == "init" ]]
-then
-    sudo passwd
-    su
-fi
-
 # install kubeadm
 mkdir /etc/apt/keyrings
 curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg 
