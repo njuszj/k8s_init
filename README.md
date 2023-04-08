@@ -3,7 +3,8 @@ bash script to init kubernetes based on kubeadm
 
 # how to use
 ## 1. for master node
-curl https://raw.githubusercontent.com/njuszj/k8s_init/main/master.sh | bash
+init_master -> start_master -> config_network
 
 ## 2. for worker node
-curl https://raw.githubusercontent.com/njuszj/k8s_init/main/worker.sh | bash
+init_worker -> start_worker
+
