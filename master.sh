@@ -3,17 +3,17 @@
 
 # install kubeadm
 mkdir /etc/apt/keyrings
-curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg 
+curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 
 echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 
 apt-get update
 apt-get install -y kubelet kubeadm kubectl
 
+# install docker
+apt install docker.io
 
-# create master node
-swapoff -a
-
+# config master node
 cat <<EOF >  /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
@@ -31,9 +31,8 @@ while read line; do
     echo "$line" >> /etc/hosts
 done
 
-apt install docker.io
-kubeadm reset -f
-
 echo "Input master ip: "
 read ip
-kubeadm init --apiserver-advertise-address=$ip --service-cidr=10.1.0.0/16 --pod-network-cidr=10.244.0.0/16
+echo "EXPORT masterIP=$ip" >> /root/.bashrc
+echo "export KUBECONFIG=/etc/kubernetes/admin.conf" >> /root/.bashrc
+source /root/.bashrc
